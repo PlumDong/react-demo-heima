@@ -4,21 +4,37 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Warning: Each child in a list should have a unique "key" prop.
+import ReactDom from 'react-dom'
+
 // 1. 数据
 const list = [
     {id: 100, name: 'tom', age: 15},
     {id: 101, name: 'jack', age: 18},
-    {id: 102, name: 'tony', age: 20},
-];// 2. 使用
+    {id: 102, name: 'tony', age: 20}
+]
+
+// +// 2. 样式
+const styleObject = {
+    listStyle: 'none',
+    backgroundColor: 'pink',
+    fontSize: 20
+}
+// 3. 使用
 const element = (
-    <ul>
-        {list.map((item, index) => (
-            <li key={index}>{item.name} {item.age >= 18 ? '成年' : '未成年'}</li>
-        ))}
+    <ul style={styleObject}>
+        {list.map(item => {
+            return (
+                <li key={item.id}>
+                    <p style={{fontSize: '2em'}}>姓名：{item.name}</p>
+                    <p>是否成年：{item.age > 16 ? '是' : '否'}</p>
+                </li>
+            )
+        })}
     </ul>
-);
-const root = ReactDOM.createRoot(document.getElementById('root'));
+)
+
+const root = ReactDOM.createRoot(document.getElementById("root"))
+
 root.render(
     element
 );
