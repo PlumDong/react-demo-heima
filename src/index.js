@@ -1,28 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './index.css'
+import classNames from 'classnames'
 
 
-// 数据
+
+// 2. 数据
 const isActive = true;
-const isBlock = false;
+const isBlock = true;
 
-// 类名对象
-const classObject = {
-    button: true,
+// 3. 产生类名
+const className = classNames('button', {
     active: isActive,
     block: isBlock,
-};
+});
 
-// 转换成字符串
-const className = Object.keys(classObject)
-    .filter((key) => classObject[key])
-    .join(' ');
-
-const element =
-    <>{classObject.button && <span className={className}>按钮</span>}</>;
+const element = <span className={className}>按钮</span>;
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
