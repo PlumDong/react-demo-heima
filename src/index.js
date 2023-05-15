@@ -4,15 +4,20 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-const loading = true;
-
+// Warning: Each child in a list should have a unique "key" prop.
+// 1. 数据
+const list = [
+    {id: 100, name: 'tom', age: 15},
+    {id: 101, name: 'jack', age: 18},
+    {id: 102, name: 'tony', age: 20},
+];// 2. 使用
 const element = (
-    <div>
-        {loading && <div>正在加载...</div>}
-        {loading || <div>数据加载完毕，这是显示数据</div>}
-    </div>
+    <ul>
+        {list.map((item, index) => (
+            <li key={index}>{item.name} {item.age >= 18 ? '成年' : '未成年'}</li>
+        ))}
+    </ul>
 );
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     element
