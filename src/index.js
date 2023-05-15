@@ -4,34 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-import ReactDom from 'react-dom'
+// 在src下新建index.css文件，导入进来即可
+import './index.css';
 
-// 1. 数据
-const list = [
-    {id: 100, name: 'tom', age: 15},
-    {id: 101, name: 'jack', age: 18},
-    {id: 102, name: 'tony', age: 20}
-]
+const isActive = true;
 
-// +// 2. 样式
-const styleObject = {
-    listStyle: 'none',
-    backgroundColor: 'pink',
-    fontSize: 20
-}
-// 3. 使用
 const element = (
-    <ul style={styleObject}>
-        {list.map(item => {
-            return (
-                <li key={item.id}>
-                    <p style={{fontSize: '2em'}}>姓名：{item.name}</p>
-                    <p>是否成年：{item.age > 16 ? '是' : '否'}</p>
-                </li>
-            )
-        })}
-    </ul>
-)
+    <span className={`button ${isActive ? 'active' : ''}`}>按钮</span>
+);
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
