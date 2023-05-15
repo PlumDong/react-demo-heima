@@ -48,7 +48,7 @@ const element = (
                             <p className={`name ${item.vip ? 'vip' : ''}`}>
                                 {item.name}
                                 {item.vip ? (
-                                    <img src="https://gw.alicdn.com/tfs/TB1c5JFbGSs3KVjSZPiXXcsiVXa-48-48.png" />
+                                    <img src="https://gw.alicdn.com/tfs/TB1c5JFbGSs3KVjSZPiXXcsiVXa-48-48.png"  alt=""/>
                                 ) : null}
                             </p>
                             <p className="time">{item.time}</p>
