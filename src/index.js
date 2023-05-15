@@ -4,14 +4,26 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// 在src下新建index.css文件，导入进来即可
-import './index.css';
 
+// 数据
 const isActive = true;
+const isBlock = false;
 
-const element = (
-    <span className={`button ${isActive ? 'active' : ''}`}>按钮</span>
-);
+// 类名对象
+const classObject = {
+    button: true,
+    active: isActive,
+    block: isBlock,
+};
+
+// 转换成字符串
+const className = Object.keys(classObject)
+    .filter((key) => classObject[key])
+    .join(' ');
+
+const element =
+    <>{classObject.button && <span className={className}>按钮</span>}</>;
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
