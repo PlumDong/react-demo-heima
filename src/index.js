@@ -19,6 +19,7 @@ function App() {
                     <span>774点赞</span>
                 </div>
             </div>
+
             <div className="child">
                 <h3>岁末年终 愿这份“温良”伴你乘风破浪 </h3>
                 <div className="detail">
