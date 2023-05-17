@@ -1,35 +1,28 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// 普通函数
-function Header() {
-    return <div>头部组件</div>;
+import {Component} from 'react';
+
+
+// 头部
+class Header extends Component {
+    render() {
+        return <>头部组件</>;
+    }
 }
 
-// 箭头函数
-const Footer = () => {
-    return <div>底部组件</div>;
-};
-
-// 加载组件，不渲染内容
-const Loading = () => {
-    const loading = true;
-    return loading ? <div>正在加载...</div> : null;
-};
-
 // 根组件
-const App = () => {
-    return (
-        <>
-            <Header />
-            <Loading />
-            <Footer />
-        </>
-    );
-};
-
+class App extends Component {
+    render() {
+        return (
+            <>
+                <Header/>
+            </>
+        );
+    }
+}
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(App());
+root.render(<App></App>);
