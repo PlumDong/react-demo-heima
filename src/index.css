@@ -39,3 +39,38 @@ code {
   display: block;
   width: 100%;
 }
+
+
+
+
+
+
+.parent {
+  width: 500px;
+  margin: 0 auto;
+}
+.parent h1 {
+  font-weight: normal;
+  margin: 0;
+  padding: 20px 0;
+}
+.child {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.child h3 {
+  font-weight: normal;
+  color: #333;
+  margin: 0;
+  padding: 10px 0;
+}
+.child .detail {
+  font-size: 14px;
+  color: #999;
+}
+.child .detail span {
+  margin-right: 10px;
+}
+
