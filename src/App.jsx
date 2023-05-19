@@ -53,18 +53,38 @@ export default class App extends Component {
             this.setState({active: value})
         }
     }
+    addComment = (content) => {
+        // 递增ID
+        const id = Math.max(...this.state.comments.map((item) => item.id)) + 1;
+        const newComment = {
+            ...this.state.user,
+            id,
+            content,
+            time: new Date(),
+            collect: false,
+        };
+        this.setState({
+            comments: [...this.state.comments, newComment],
+        });
+    };
+    // 删除评论
+    delComment = (id) => {
+        this.setState({
+            comments: this.state.comments.filter((item) => item.id !== id),
+        });
+    };
 
     render() {
         const {user, comments, active} = this.state
         return (
             <div className="comments">
                 {/* 输入框组件 */}
-                <CommentInput/>
+                <CommentInput addComment={this.addComment}/>
                 {/* 标题排序组件 */}
                 <CommentHead active={active} setActive={this.setActive} comments={comments} />
                 {/* 列表组件 */}
                 {/*<CommentList />*/}
-                <CommentList user={user} comments={comments} active={active}/>
+                <CommentList user={user} comments={comments} active={active} delComment={this.delComment} />
             </div>
         )
     }

@@ -10,6 +10,7 @@ const CommentList = (props) => {
     if (props.active === 'time') {
         newList.sort((p, c) => c.time - p.time);
     }
+
     return (
         <ul className="comm-list">
             {newList.map((item) => (
@@ -36,7 +37,7 @@ const CommentList = (props) => {
                                 className={`iconfont icon-collect${item.collect ? '-sel' : ''}`}
                             ></span>
                             {item.name === props.user.name && (
-                                <span className="del">删除</span>
+                                <span onClick={() => props.delComment(item.id)} className="del"> 删除 </span>
                             )}
                         </p>
                         <p>{item.content}</p>
