@@ -1,19 +1,21 @@
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from "./App";
 import PropTypes from 'prop-types'
 
-const List = props => {
-    const arr = props.colors
-    const lis = arr.map((item, index) => <li key={index}>{item.name}</li>)
-    return <ul>{lis}</ul>
+const Demo = (props) => {
+    return <div>Demo组件</div>
 }
-
-List.propTypes = {
-    // props属性：校验规则
-    colors: PropTypes.array
+Demo.propTypes = {
+    // 常见类型
+    optionalFunc: PropTypes.func,
+    // 常见类型+必填
+    requiredFunc: PropTypes.func.isRequired,
+    // 特定结构的对象
+    optionalObjectWithShape: PropTypes.shape({
+        color: PropTypes.string,
+        fontSize: PropTypes.number
+    })
 }
-
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(List({colors:[{name:"张三"},{name:"李四"}]}));
+root.render(Demo({}));
