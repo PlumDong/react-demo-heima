@@ -73,6 +73,18 @@ export default class App extends Component {
             comments: this.state.comments.filter((item) => item.id !== id),
         });
     };
+// 收藏评论&取消收藏
+    collectComment = (id) => {
+        this.setState({
+            comments: this.state.comments.map((item) => {
+                if (item.id === id) {
+                    return {...item, collect: !item.collect};
+                } else {
+                    return item;
+                }
+            }),
+        });
+    };
 
     render() {
         const {user, comments, active} = this.state
@@ -81,10 +93,15 @@ export default class App extends Component {
                 {/* 输入框组件 */}
                 <CommentInput addComment={this.addComment}/>
                 {/* 标题排序组件 */}
-                <CommentHead active={active} setActive={this.setActive} comments={comments} />
+                <CommentHead active={active} setActive={this.setActive} comments={comments}/>
                 {/* 列表组件 */}
                 {/*<CommentList />*/}
-                <CommentList user={user} comments={comments} active={active} delComment={this.delComment} />
+                <CommentList
+                    user={user}
+                    comments={comments}
+                    active={active}
+                    delComment={this.delComment}
+                    collectComment={this.collectComment}/>
             </div>
         )
     }

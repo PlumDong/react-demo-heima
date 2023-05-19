@@ -39,6 +39,10 @@ const CommentList = (props) => {
                             {item.name === props.user.name && (
                                 <span onClick={() => props.delComment(item.id)} className="del"> 删除 </span>
                             )}
+                            <span
+                                onClick={() => props.collectComment(item.id)}
+                                className={`iconfont icon-collect${item.collect ? '-sel' : ''}`}
+                            >收藏</span>
                         </p>
                         <p>{item.content}</p>
                     </div>
