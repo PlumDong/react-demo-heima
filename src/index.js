@@ -1,14 +1,22 @@
 import ReactDOM from 'react-dom';
 import './index.css';
-import PropTypes from 'prop-types'
+import {Component} from "react";
 
-// 分页组件
-const Pagination = ({pageSize = 100}) => {
-    return <div> pageSize的默认值：{pageSize}</div>
+class Demo extends Component {
+    constructor () {
+        super()
+        console.log('1. constructor执行')
+    }
+    componentDidMount () {
+        console.log('3. componentDidMount执行')
+    }
+    render() {
+
+        console.log('2. render执行')
+        return <div>{'sss' ?? 'App组件'}</div>
+    }
 }
-
-// 使用组件
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(<Pagination />);
+root.render(<Demo />);
