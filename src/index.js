@@ -2,20 +2,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import PropTypes from 'prop-types'
 
-const Demo = (props) => {
-    return <div>Demo组件</div>
+// 分页组件
+const Pagination = ({pageSize = 100}) => {
+    return <div> pageSize的默认值：{pageSize}</div>
 }
-Demo.propTypes = {
-    // 常见类型
-    optionalFunc: PropTypes.func,
-    // 常见类型+必填
-    requiredFunc: PropTypes.func.isRequired,
-    // 特定结构的对象
-    optionalObjectWithShape: PropTypes.shape({
-        color: PropTypes.string,
-        fontSize: PropTypes.number
-    })
-}
+
+// 使用组件
+
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
-root.render(Demo({}));
+root.render(<Pagination />);
