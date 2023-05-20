@@ -4,16 +4,32 @@ export default class Demo extends Component {
         count: 0
     }
     handleClick = () => {
-        this.setState({count: this.state.count+100})
-        this.setState({count: this.state.count+1})
-        console.log(this.state.count)  // 打印0
+        // this.setState({count: this.state.count+1})
+        // this.setState({count: this.state.count+1})
+        // 页面展示 1
+        this.setState(prevState=>{
+            return {
+                count: prevState.count + 1
+            }
+        })
+        this.setState(prevState=>{
+            return {
+                count: prevState.count + 1
+            }
+        })
+
+        this.setState(prevState=>{
+            return {
+                count: prevState.count + 1
+            }
+        })
+        // 页面展示 3
     }
     render() {
-        console.log('render')
         return (
             <div>
                 <div>Demo组件：{this.state.count}</div>
-                <button onClick={this.handleClick}>体现“异步”和合并</button>
+                <button onClick={this.handleClick}>setState串联更新数据</button>
             </div>
         )
     }
