@@ -28,6 +28,7 @@ export default class Demo extends Component {
         console.log('未更新：', this.state.count)  // 打印：0
     }
     render() {
+        console.log("渲染页面")
         return (
             <div>
                 <div>Demo组件：{this.state.count}</div>
