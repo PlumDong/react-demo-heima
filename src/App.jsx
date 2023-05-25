@@ -21,7 +21,7 @@ export default class App extends Component {
         return (
             <section className="todoapp">
                 <Header getTodoList={this.getTodoList}/>
-                <Main list={this.state.list}/>
+                <Main list={this.state.list} getTodoList={this.getTodoList} />
                 <Footer/>
             </section>
         );
