@@ -1,8 +1,16 @@
 import React from "react";
-import CartFooter from './components/CartFooter';
+import {CartHeader} from "./components/CartHeader";
+import CartFooter from "./components/CartFooter";
+import {GoodsItem} from "./components/GoodsItem";
 
-export default () => {
-    return (<div>
-        <CartFooter/>
-    </div>);
+export default function App() {
+    return (
+        <div className="app">
+            <CartHeader>购物车</CartHeader>
+            <GoodsItem />
+            <GoodsItem />
+            <GoodsItem />
+            <CartFooter />
+        </div>
+    );
 }
