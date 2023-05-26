@@ -1,5 +1,5 @@
 import './index.scss';
-export const CartFooter = ({ checkAll, changeCheckAll }) => {
+export const CartFooter = ({ checkAll, changeCheckAll,totalCount, totalPrice }) => {
     return (
         <div className="my-footer">
             <div className="custom-control custom-checkbox">
@@ -16,10 +16,11 @@ export const CartFooter = ({ checkAll, changeCheckAll }) => {
             </div>
             <div>
                 <span>合计:</span>
-                <span className="price">¥ 100</span>
+                <span className="price">¥ {totalPrice}</span>
+
             </div>
             <button type="button" className="footer-btn btn btn-primary">
-                结算 (0)
+                结算 ({totalCount})
             </button>
         </div>
     );

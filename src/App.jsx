@@ -8,6 +8,7 @@ const http = axios.create({
 });
 
 export default function App() {
+
     const [checkAll, setCheckAll] = useState(false);
     const changeCheckAll = (checkAll) => {
         setCheckAll(checkAll);
@@ -52,7 +53,19 @@ export default function App() {
         loadData();
     }, []);
 
+    const totalCount = goodsList.reduce((count, item) => {
+        if (item.goods_state) {
+            return count + item.goods_count;
+        }
+        return count;
+    }, 0);
 
+    const totalPrice = goodsList.reduce((count, item) => {
+        if (item.goods_state) {
+            return count + item.goods_count * item.goods_price;
+        }
+        return count;
+    }, 0);
     return (
         <div className="app">
             {/* 商品列表项 */}
@@ -63,8 +76,7 @@ export default function App() {
                     changeGoodsState={changeGoodsState}
                 />
             ))}
-            <CartFooter checkAll={checkAll} changeCheckAll={changeCheckAll} />
-
+            <CartFooter checkAll={checkAll} changeCheckAll={changeCheckAll} totalCount={totalCount} totalPrice={totalPrice} />
         </div>
     );
 }
