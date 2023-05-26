@@ -1,13 +1,14 @@
 import './index.scss';
-const CartFooter = () => {
+export const CartFooter = ({ checkAll, changeCheckAll }) => {
     return (
-        <div className="cart-footer">
-            11
+        <div className="my-footer">
             <div className="custom-control custom-checkbox">
                 <input
                     type="checkbox"
                     className="custom-control-input"
                     id="footerCheck"
+                    checked={checkAll}
+                    onChange={(e) => changeCheckAll(e.target.checked)}
                 />
                 <label className="custom-control-label" htmlFor="footerCheck">
                     全选
@@ -23,5 +24,4 @@ const CartFooter = () => {
         </div>
     );
 };
-
 export default CartFooter;

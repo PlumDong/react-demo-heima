@@ -6,7 +6,7 @@
       "goods_img": "https://www.escook.cn/vuebase/pics/1.png",
       "goods_price": 108,
       "goods_count": 1,
-      "goods_state": true
+      "goods_state": false
     },
     {
       "id": 2,
@@ -46,7 +46,7 @@
       "goods_img": "https://www.escook.cn/vuebase/pics/6.png",
       "goods_price": 142.8,
       "goods_count": 1,
-      "goods_state": true
+      "goods_state": false
     },
     {
       "id": 7,
