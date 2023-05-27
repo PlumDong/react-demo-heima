@@ -1,21 +1,17 @@
-import { useRef, useEffect } from "react";
+import React, { useState } from "react";
+import Context from "./context";
+import Child from './Child'
 
 const App = () => {
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        // input DOM元素
-        console.log(inputRef.current);
-        // input 获取焦点
-        console.log(inputRef.current.focus());
-    }, []);
-
+    const [count, setCount] = useState(0)
     return (
-        <div className="app">
-            根组件：
-            <input type="text" ref={inputRef} />
-        </div>
+        <Context.Provider value={count}>
+            <div className="app">
+                根组件：{count} <button onClick={() => setCount(count + 1)}>打豆豆</button>
+                <hr />
+                <Child />
+            </div>
+        </Context.Provider>
     );
 };
-
 export default App;
