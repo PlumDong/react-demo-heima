@@ -1,10 +1,11 @@
-import ReactDOM from 'react-dom';
-import './index.css';
-import {Component} from "react";
-import App from "./App";
-import 'bootstrap/dist/css/bootstrap.css';
+import { Provider } from 'react-redux'
+import store from './store'
+import App from './App'
 
-
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(  <App />,);
+// eslint-disable-next-line no-undef
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('#root')
+)
