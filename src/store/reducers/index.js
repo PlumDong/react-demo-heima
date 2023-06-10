@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
-import { todos } from './todos'
+import { channels } from './channels'
+import { articles } from './articles'
 
 const rootReducer = combineReducers({
-    todos
+    channels,
+    articles
 })
 
 export default rootReducer
