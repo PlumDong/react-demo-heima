@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
 import avatar from '../../assets/back.jpg'
+import * as types from "../../store/actionTypes/articles";
 
 export const ArticleList = () => {
     const articles = useSelector(state => state.articles)
