@@ -1,13 +1,13 @@
 
 
 const initState = {
-    value:'默认值'
+    count:0
 }
 export const rootReducer = (state = initState,action)=>{
     console.log("rootReducer = ",state,action)
     switch (action.type){
-        case "send_type":
-            return Object.assign({},state,action)
+        case "send_action":
+            return {count:state.count+1}
         default:
             console.log("rootReducer default")
             return state
