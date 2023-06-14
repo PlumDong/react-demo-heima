@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+.app{
+  position: relative;
+}
+.boy{
+  position: absolute;
+  top: 30px;
+  left: 0;
+}
+.girl{
+  position: absolute;
+  top: 100px;
+  left: 400px;
+}
