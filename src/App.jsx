@@ -23,8 +23,10 @@ const App = () => {
                   path属性：路由规则
                   component属性：展示的组件
                   Route 组件写在哪，渲染出来的组件就展示在哪
+                  推荐：给默认路由（'/'）添加 exact 属性
                 */}
                 <Route exact  path="/" component={Home} />
+
                 <Route path="/login" component={Login} />
 
             </div>
