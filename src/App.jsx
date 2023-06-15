@@ -24,7 +24,7 @@ const App = () => {
                   component属性：展示的组件
                   Route 组件写在哪，渲染出来的组件就展示在哪
                 */}
-                <Route path="/" component={Home} />
+                <Route exact  path="/" component={Home} />
                 <Route path="/login" component={Login} />
 
             </div>
