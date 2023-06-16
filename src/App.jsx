@@ -11,6 +11,7 @@ const Login = () => {
     const onLogin = () => {
         // ...
         history.push('/')
+        // history.go(-1)
     }
     return (
         <button onClick={onLogin}>登录</button>
