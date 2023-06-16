@@ -1,10 +1,21 @@
-import {BrowserRouter as Router, Route, Link, Switch} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Link, Switch, useHistory} from 'react-router-dom'
 
 const First = () => <p>页面一的页面内容</p>
 const Tow = () => <p>页面二的页面内容</p>
 const All = () => <p>没有路由的页面内容</p>
 const Home = () => <p>首页</p>
-const Login = () => <p>登录页</p>
+
+const Login = () => {
+    const history = useHistory()
+
+    const onLogin = () => {
+        // ...
+        history.push('/')
+    }
+    return (
+        <button onClick={onLogin}>登录</button>
+    )
+}
 const NoMatch = () => <p>404页面</p>
 
 const App = () => {
