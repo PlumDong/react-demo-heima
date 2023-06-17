@@ -1,4 +1,8 @@
+import {Button} from 'antd'
+
 const Login = () => {
-    return <div>登录页面</div>
+    return <div>
+        <Button type="primary">登录</Button>
+    </div>
 }
 export default Login
