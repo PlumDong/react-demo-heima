@@ -1,5 +1,7 @@
+import {getToken} from "@/utils";
+
 const initialState = {
-    token: localStorage.getItem('geek-pc-token') || ''
+    token: getToken() || ''
 }
 export const user = (state = initialState, action) => {
     switch (action.type) {

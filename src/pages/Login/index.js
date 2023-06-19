@@ -14,7 +14,7 @@ const Login = () => {
         const { mobile, code } = values
         try {
             await dispatch(login(mobile, code))
-            history.replace('/home')
+            history.push('/home')
         } catch (e) {
             message.error(e.response?.data?.message || '登录失败')
         }
