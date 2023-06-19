@@ -1,10 +1,14 @@
-// 登录功能，只需要存储 token 即可，所以，状态默认值为：''
 const initialState = {
-    token: ''
+    token: localStorage.getItem('geek-pc-token') || ''
 }
-
-const user = (state = initialState, action) => {
-    return state
+export const user = (state = initialState, action) => {
+    switch (action.type) {
+        case 'user/setToken':
+            return {
+                ...state,
+                token: action.payload
+            }
+        default:
+            return state
+    }
 }
-
-export default user

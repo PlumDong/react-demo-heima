@@ -1,13 +1,24 @@
-import {Form, Input, Button, Checkbox} from 'antd'
+import {Form, Input, Button, Checkbox, message} from 'antd'
 import {UserOutlined, LockOutlined} from "@ant-design/icons";
 import './indexl.scss'
 import logo from '../../assets/logo.png'
+import {useDispatch} from "react-redux";
+import {useHistory} from "react-router-dom";
+import {login} from "@/store/actions";
 
 const Login = () => {
-    const onFinish = values => {
-        console.log(values)
-    }
+    const dispatch = useDispatch()
+    const history = useHistory()
 
+    const onFinish = async values => {
+        const { mobile, code } = values
+        try {
+            await dispatch(login(mobile, code))
+            history.replace('/home')
+        } catch (e) {
+            message.error(e.response?.data?.message || '登录失败')
+        }
+    }
     return (
         <div className="login">
             <div className="login-container">
