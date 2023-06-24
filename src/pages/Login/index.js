@@ -1,20 +1,22 @@
 import {Form, Input, Button, Checkbox, message} from 'antd'
 import {UserOutlined, LockOutlined} from "@ant-design/icons";
-import './indexl.scss'
+import './index.scss'
 import logo from '../../assets/logo.png'
 import {useDispatch} from "react-redux";
-import {useHistory} from "react-router-dom";
 import {login} from "@/store/actions";
+import { useHistory, useLocation } from "react-router-dom";
+import styles from './index.module.scss'
 
 const Login = () => {
     const dispatch = useDispatch()
     const history = useHistory()
-
+    const location = useLocation()
     const onFinish = async values => {
         const { mobile, code } = values
         try {
             await dispatch(login(mobile, code))
-            history.push('/home')
+            message.success("登录成功");
+            history.replace(location?.state?.returnUrl || "/home");
         } catch (e) {
             message.error(e.response?.data?.message || '登录失败')
         }
@@ -70,7 +72,7 @@ const Login = () => {
                     </Form.Item>
                     <Form.Item>
                         <Button type="primary" htmlType="submit" block>
-                            登录
+                            <span className={styles.a}>登录</span>
                         </Button>
                     </Form.Item>
                 </Form>
